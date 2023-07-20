@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        body {
+            background-color: #2f3640;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gallery {
+            width: 100%;
+        }
+
+        .gallery-slider {
+            width: 100%;
+            overflow: hidden;
+            height: auto;
+            margin: 0 0 10px 0;
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .gallery-slider .swiper-slide {
+            width: auto;
+            height: 100%;
+        }
+
+        .gallery-slider .swiper-slide h2 {
+            position: absolute;
+            left: 50%;
+            /*Metini Yukarı Alam*/
+            top: 40%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            font-size: 64px;
+            color: #fff;
+        }
+
+        .gallery-slider .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(70%);
+        }
+
+        .gallery-thumbs {
+            width: 100%;
+            padding: 0;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 400px;
+            z-index: 9;
+        }
+
+        .gallery-thumbs img {
+            border-radius: 50%;
+            width: 240px;
+            height: 240px;
+        }
+
+        .gallery-thumbs .swiper-slide {
+            text-align: center;
+            overflow: hidden;
+            opacity: 8;
+        }
+
+        .gallery-thumbs .swiper-slide .card {
+            padding: 4px;
+            border-radius: 120px 120px 0 0;
+            padding: 5px;
+            width: 250px;
+            height: 250px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .gallery-thumbs .swiper-slide-active .card {
+            background-color: #fff;
+
+        }
+
+        .gallery-thumbs .swiper-slide img {
+            filter: grayscale(100%);
+            transition: 300ms linear;
+        }
+
+        .gallery-thumbs .swiper-slide-active img {
+            filter: grayscale(0);
+        }
+
+
+
+        .gallery-thumbs .swiper-slide-active {
+            opacity: 1;
+        }
+
+        img {
+            width: auto;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gallery">
+        <div class="swiper-container gallery-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="//into-the-program.com/demo/images/sample010.jpg" alt="">
+                    <h2>Slider Title</h2>
+                </div>
+                <div class="swiper-slide">
+                    <img src="//into-the-program.com/demo/images/sample005.jpg" alt="">
+                    <h2>Slider Title</h2>
+                </div>
+                <div class="swiper-slide">
+                    <img src="//into-the-program.com/demo/images/sample012.jpg" alt="">
+                    <h2>Slider Title</h2>
+                </div>
+                <div class="swiper-slide">
+                    <img src="//into-the-program.com/demo/images/sample007.jpg" alt="">
+                    <h2>Slider Title</h2>
+                </div>
+                <div class="swiper-slide">
+                    <img src="//into-the-program.com/demo/images/sample008.jpg" alt="">
+                    <h2>Slider Title</h2>
+                </div>
+                <div class="swiper-slide">
+                    <img src="//into-the-program.com/demo/images/sample009.jpg" alt="">
+                    <h2>Slider Title</h2>
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="swiper-container gallery-thumbs">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="//into-the-program.com/demo/images/sample010.jpg" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="//into-the-program.com/demo/images/sample005.jpg" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="//into-the-program.com/demo/images/sample012.jpg" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="//into-the-program.com/demo/images/sample007.jpg" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="//into-the-program.com/demo/images/sample008.jpg" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="//into-the-program.com/demo/images/sample009.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var slider = new Swiper('.gallery-slider', {
+            slidesPerView: 1,
+            spaceBetween: 1,
+            speed: 500,
+            effect: 'fade',
+            centeredSlides: true,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+
+        var thumbs = new Swiper('.gallery-thumbs', {
+            slidesPerView: 4,
+            spaceBetween: 1,
+            centeredSlides: true,
+            loop: true,
+            slideToClickedSlide: true,
+        });
+
+        slider.controller.control = thumbs;
+        thumbs.controller.control = slider;
+    </script>
+
+</body>
+
+</html>
